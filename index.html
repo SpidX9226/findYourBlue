@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your blue color</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Find your favorite blue tint</h1>
+</header>
+
+<main>
+    <div class="color_holder"></div>
+
+    <p class="color_tint">0, 0, <span id="b_channel">128</span></p>
+
+    <div class="progress">
+        <div class="progress__bar" id="progressBar"></div>
+    </div>
+    <p id="result_text" class="result_text"></p>
+
+    <div class="controls">
+        <button id="btn_brighter" type="button">brighter</button>
+        <button id="btn_darker" type="button">darker</button>
+        <button id="btn_reset" type="button">reset</button>
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
