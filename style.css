@@ -79,6 +79,17 @@ button:hover {
     border-color: rgba(0, 0, 255, 0.60);
 }
 
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: rgba(0,0,0,0.3);
+    transition: opacity 0.3s ease;
+}
+
+button:disabled:hover {
+    border-color: rgba(0,0,0,0.3);
+}
+
 @media (max-width: 600px) {
     body {
         font-size: 14px;

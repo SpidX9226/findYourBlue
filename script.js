@@ -16,7 +16,12 @@ function updateInfo() {
     colorTint.textContent = b_channel;
     const progress = (count / maxIteration) * 100;
     progressBar.style.width = `${progress}%`;
-    colorText.innerText = getClosestShade(b_channel);
+    colorText.innerText = `Closest shade is: ${getClosestShade(b_channel)}!`
+}
+
+function setControlsDisabled(isDisabled) {
+    btnBrighter.disabled = isDisabled;
+    btnDarker.disabled = isDisabled;
 }
 
 const extendedBluePalette = [
@@ -84,7 +89,15 @@ function binarySearch(isDarker) {
         ? Math.max(0, b_channel - step)
         : Math.min(255, b_channel + step);
 
+    btnDarker.disabled = b_channel === 0;
+    btnBrighter.disabled = b_channel === 255;
+
     count++;
+
+    if (count >= maxIteration) {
+        showResult();
+        setControlsDisabled(true);
+    }
 }
 
 function brighter() {
@@ -100,11 +113,13 @@ function darker() {
 function reset() {
     count = 0;
     b_channel = 128;
+    colorText.innerText = "";
+    setControlsDisabled(false);
     updateInfo();
 }
 
 function showResult() {
-    alert(`Final blue channel: ${b_channel}`);
+    alert(`Final blue channel: ${b_channel} and closest shade is: ${getClosestShade(b_channel)}`);
 }
 
 btnBrighter.addEventListener("click", brighter);
