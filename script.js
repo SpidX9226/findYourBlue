@@ -17,6 +17,8 @@ function updateInfo() {
     const progress = (count / maxIteration) * 100;
     progressBar.style.width = `${progress}%`;
     colorText.innerText = `Closest shade is: ${getClosestShade(b_channel)}!`
+
+    btnReset.disabled = count <= 0;
 }
 
 function setControlsDisabled(isDisabled) {
